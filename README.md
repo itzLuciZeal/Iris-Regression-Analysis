@@ -12,11 +12,11 @@ An interactive, modular desktop application built to perform linear regression a
 
 ### 1. Comprehensive Analysis View
 ![Main View](main_view.png)
-*Displays multiple regression lines, equations ($y = mx + b$), and Pearson’s R values for selected species.*
+*Displays multiple regression lines, equations (y = mx + b), and Pearson’s R values for selected species.*
 
 ### 2. Dynamic Data Filtering
 ![Species Selection](species_selection.png)
-*Features a custom checkbox system in a scrollable UI, allowing for $2^n - 1$ unique combinations of species selection.*
+*Features a custom checkbox system in a scrollable UI, allowing for 2^n - 1 unique combinations of species selection.*
 
 ### 3. Axis Interchange & UX
 ![Interchange View](interchange.png)
