@@ -46,7 +46,7 @@ class RegressionApp:
 
         self.bg_color = "white"
         self.available_xyArgs = [
-            self.df_xyArgs[n] 
+            self.df_xyArgs[n]
             for n in range(len(self.df_xyArgs)) 
             if self.x_arg not in self.df_xyArgs[n] and self.y_arg not in self.df_xyArgs[n]
         ]
@@ -394,7 +394,7 @@ class RegressionApp:
             self.check_vars = []
             self.check_buttons = []
 
-            for i in range(n):
+            for i in range(n): # Creating checkbuttons for each species
                 var = tk.StringVar()
                 self.check_vars.append(var)
                 current_name = np.unique(self._og_data[i][0].index)[0]
