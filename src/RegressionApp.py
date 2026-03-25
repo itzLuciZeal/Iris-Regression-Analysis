@@ -34,7 +34,6 @@ class RegressionApp:
         if scatter_col is not None and not isinstance(scatter_col, list): raise TypeError("scatter_col must be in a form of list type with series of string in it")
         if line_plot_col is not None and not isinstance(line_plot_col, list): raise TypeError("line_plot_col must be in a form of list type with series of string in it")
 
-        self.icon_image = ImageTk.PhotoImage(file=icon_path)
         self.df = dataframe
         self._index_col = _index_col
         self.df_xyArgs = self.df.columns
@@ -64,6 +63,7 @@ class RegressionApp:
         self._sub_window_state = False
 
         self.app = tk.Tk()
+        self.icon_image = ImageTk.PhotoImage(file=icon_path)
         self.app.iconphoto(False, self.icon_image)
         self.app.title("Regression App")
         self.app.config(width=900, height=900, bg=self.bg_color)
@@ -494,7 +494,6 @@ class RegressionApp:
         # On Windows, event.delta is typically 120 or -120
         # Dividing by -120 makes it scroll 1 unit per "click" of the wheel
         self._species_canvas.yview_scroll(int(-1*(event.delta/120)), "units")
-
 
 df_Iris = pd.read_csv(iris_path, index_col="Species").drop(columns="Id")
 df_Learners = pd.read_csv(study_hours_path, index_col="Learners")
