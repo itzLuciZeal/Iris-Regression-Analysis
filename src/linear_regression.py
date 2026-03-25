@@ -18,7 +18,7 @@ class Inference:
 
 
     def pearson_r(self) -> float:
-        '''Standard way to get pearson's r'''
+        ''' Standard way to get pearson's r '''
         numerator = self.n*self.sum_xy - (self.sum_x*self.sum_y)
         denominator = np.sqrt((self.n*self.sum_x_2 - (self.sum_x)**2) * (self.n*self.sum_y_2 - (self.sum_y)**2))
         if denominator == 0: return 0.0
@@ -43,7 +43,6 @@ class Inference:
         Sd_2 = (_sum_d_2 - ((_sum_d)**2/self.n))/self.n
 
         # Standard Deviation
-        print(Sy_2, Sd_2)
         Sx, Sy, Sd = math.sqrt(max(0, Sx_2)), math.sqrt(max(0, Sy_2)), math.sqrt(max(0, Sd_2))
         if Sx * Sy == 0: return 0.0
 
@@ -69,7 +68,6 @@ class Inference:
         sign = "-" if b < 0 else "+"
 
         return f"y = {m:.2f}x {sign} {abs(b):.2f}"
-
 
     def reg_line_array(self):
         '''Returning the array of x array of values and y array of values of the given equation of regression line'''

@@ -19,9 +19,10 @@ plt.rcParams['font.family'] = 'serif'
 plt.rcParams['font.serif'] = ['STIXGeneral', 'DejaVu Serif']
 
 class RegressionApp:
-    def __init__(self, app: tk.Tk, dataframe: pd.DataFrame, _index_col: str, set_x: str=None, set_y: str=None, title: str="Regression Analysis", size_alpha: tuple=(30, .6), scatter_col: list[str]=None, line_plot_col: list[str]=None):
-        ''' app -> must be in a tk.Tk form | dataframe -> must be in a pd.DataFrame form | _index_col -> indexing used for assigning in each rows | set_x -> any variables that you want to be set as the initial
-        set_y -> any variables you want to set as the initial | title -> title of the overall graph | size_alpha -> tuple form with (size, alpha) | scatter_col -> list form with series of strings | line_plot_col -> list form with series of strings '''
+    def __init__(self, dataframe: pd.DataFrame, _index_col: str, set_x: str=None, set_y: str=None, title: str="Regression Analysis", size_alpha: tuple=(30, .6), scatter_col: list[str]=None, line_plot_col: list[str]=None):
+        ''' dataframe -> must be in a pd.DataFrame form | _index_col -> indexing used for assigning in each rows | set_x -> any variables that you want to be set as the initial
+        set_y -> any variables you want to set as the initial | title -> title of the overall graph | size_alpha -> tuple form with (size, alpha)
+        scatter_col -> list form with series of strings | line_plot_col -> list form with series of strings '''
 
         if not isinstance(dataframe, pd.DataFrame): raise TypeError("data frame must be in a pandas Data Frame form")
         if not isinstance(title, str): raise TypeError("Title must be in a string form")
@@ -62,7 +63,7 @@ class RegressionApp:
         self.linear_regression_state = False
         self._sub_window_state = False
 
-        self.app = app
+        self.app = tk.Tk()
         self.app.iconphoto(False, self.icon_image)
         self.app.title("Regression App")
         self.app.config(width=900, height=900, bg=self.bg_color)
@@ -501,5 +502,4 @@ df_Learners = pd.read_csv(study_hours_path, index_col="Learners")
 scatter_colors = ["red", "royalblue", "rebeccapurple"]
 line_colors = ["black", "midnightblue", "gold"]
 
-app = tk.Tk()
-regApp = RegressionApp(app=app, dataframe=df_Iris, _index_col="Species", title="Iris Regression Analysis", size_alpha=(35, .7), scatter_col=scatter_colors, line_plot_col=line_colors)
+regApp = RegressionApp(dataframe=df_Iris, _index_col="Species", title="Iris Regression Analysis", size_alpha=(35, .7), scatter_col=scatter_colors, line_plot_col=line_colors)
